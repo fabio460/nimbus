@@ -21,17 +21,17 @@ function App() {
               {lista.map(item=>{
                 if(item.chuva <= 0.2){
                   quant_agua='Sem Chuva'
-                }else{
-                  if(item.chuva > 0.2  && item.chuva <=5 ){
-                    quant_agua = 'Chuva Fraca'
-                  }else{
-                    if(item.chuva <= 25 ){
-                      quant_agua = 'Chuva Moderada'
-                    }else{
-                      quant_agua = 'Chuva Forte'
-                    }
-                  }
                 }
+                if((item.chuva > 0.2)  && (item.chuva <=5) ){
+                  quant_agua = 'Chuva Fraca'
+                }
+                if((item.chuva > 5) && (item.chuva <= 25) ){
+                  quant_agua = 'Chuva Moderada'
+                }
+                if(item.chuva > 25){
+                  quant_agua = 'Chuva Forte'
+                }              
+                
                 return <Itens hora={item.hora} data={item.data} chuva={quant_agua}/>
               })}
            </div>
